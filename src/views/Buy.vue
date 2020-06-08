@@ -3,7 +3,7 @@
         <top
             h6="You are about to score some tickets to"
         />
-        <ticketInfo />
+        <ticketInfo v-for="(item, index) in eventList" :key="index" :eventInfo="item" />
         <orderButton />
     </section>
 </template>
@@ -19,6 +19,11 @@ export default {
         top,
         ticketInfo,
         orderButton
+    },
+    computed: {
+        eventList() {
+            return this.$store.state.eventsList;
+        }
     }
 }
 </script>
