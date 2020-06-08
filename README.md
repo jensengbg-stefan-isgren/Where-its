@@ -55,3 +55,25 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### ENDPONTS SERVER
+
+**Buy Ticket:  POST localhost:3000/ticket**
+    user_id = req.body.user_id,
+    event_id = req.body.event_id,
+    ticket_number = req.body.ticket_number,
+    sold_tickets = req.body.sold_tickets
+
+**Get Ticket: GET localhost:3000/ticket**
+req.headers.ticket_number
+
+**Get all events: GET localhost:3000/events**
+
+**Post new event: POST localhost:3000/events**
+name = req.body.name,
+place = req.body.place,
+startDateTime = req.body.startDateTime
+endDateTime = req.body.endDateTime,
+tickets = req.body.tickets (total tickets)
+price = req.body.price,
