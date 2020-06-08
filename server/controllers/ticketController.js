@@ -8,7 +8,7 @@ ticketSchema = db.ticketSchema;
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 
-router.post("/ticket", async (req, res) => {
+exports.addTicket = async (req, res) => {
     const user_id = req.body.user_id,
     event_id = req.body.event_id,
     date = new Date();
@@ -21,4 +21,4 @@ router.post("/ticket", async (req, res) => {
   
     ticket.save();
     res.send(ticket);
-  });
+  };
