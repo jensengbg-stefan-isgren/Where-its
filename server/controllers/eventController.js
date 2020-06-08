@@ -1,4 +1,3 @@
-
 const express = require("express"),
 bodyParser = require("body-parser"),
 mongoose = require("mongoose"),
@@ -12,5 +11,7 @@ exports.addEvent = async (request, response) => {
 };
 
 exports.getEvents = async (request, response) => {
+  const events= await Event.find();
+  res.json(events);
   response.send("HÄR KOMMER ALLA EVENTS");
 };
