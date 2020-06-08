@@ -1,12 +1,10 @@
 const express = require("express"),
 bodyParser = require("body-parser"),
 mongoose = require("mongoose"),
-router = express.Router(),
 db = mongoose.connection,
 ticketSchema = db.ticketSchema;
 
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended: true }));
+
 
 exports.addTicket = async (req, res) => {
     const user_id = req.body.user_id,
