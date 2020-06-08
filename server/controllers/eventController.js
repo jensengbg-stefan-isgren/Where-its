@@ -1,4 +1,3 @@
-
 const event = require("../models/event");
 
 exports.addEvent = async (request, response) => {
@@ -23,10 +22,9 @@ exports.addEvent = async (request, response) => {
 
 exports.getEvents = async (request, response) => {
   try {
-    const events = await Event.find();
+    const events = await event.find();
     return response.json(events);
-  }
-  catch(error) {
-    console.log(error)
+  } catch (error) {
+    console.log(error);
   }
 };
