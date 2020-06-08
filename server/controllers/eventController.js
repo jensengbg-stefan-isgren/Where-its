@@ -22,8 +22,11 @@ exports.addEvent = async (request, response) => {
 };
 
 exports.getEvents = async (request, response) => {
-  const events = await Event.find();
-  return response.json(events);
-
-
+  try {
+    const events = await Event.find();
+    return response.json(events);
+  }
+  catch(error) {
+    console.log(error)
+  }
 };
