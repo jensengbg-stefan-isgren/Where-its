@@ -33,5 +33,6 @@ exports.addTicket = async (req, res) => {
     res.send(ticket);
   } catch (err) {
     console.log(err);
+    res.send(err)
   }
 };
