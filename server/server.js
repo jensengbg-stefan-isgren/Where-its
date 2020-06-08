@@ -13,13 +13,13 @@ app.use(cors());
 app.use(express.json());
 
 mongoose
-  .connect(`mongodb+srv://dbUser:hemligt@cluster0-r5fw1.mongodb.net/where-its?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=true`, {
+  .connect(`mongodb+srv://jensengbg:jensengbg@cluster0-lhhov.mongodb.net/where-its?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
   })
   .then(() => {
-    console.log(`Connected to MongoDB Airbean`);
+    console.log(`Connected to MongoDB Where-its`);
     app.listen(3000, () => console.log(`Server started on port ${PORT}`));
   })
   .catch((error) => {
