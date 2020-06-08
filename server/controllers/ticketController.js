@@ -1,15 +1,15 @@
 const mongoose = require("mongoose"),
   db = mongoose.connection,
-  Event = require("../models/event");
+  Event = require("../models/event"),
+  Ticket = require("../models/ticket");
 
 exports.addTicket = async (req, res) => {
-  let user_id = req.body.user_id,
+  const user_id = req.body.user_id,
     event_id = req.body.event_id,
-    sold_tickets = req.body.sold_tickets,
     date = new Date();
 
-    sold_tickets = sold_tickets + 1,
-
+    let sold_tickets = req.body.sold_tickets;
+    sold_tickets ++;
 
   // Upd antal sålda biljetter
   Event.updateOne(
