@@ -1,14 +1,14 @@
 <template>
     <article class="event-item">
         <div class="event-item-date">
-            <p class="event-item-date-day">21</p>
-            <p class="event-item-date-month">mar</p>
+            <p class="event-item-date-day">{{ eventDay }}</p>
+            <p class="event-item-date-month">{{ eventMonth }}</p>
         </div>
         <div class="event-item-info">
-            <h2 class="event-item-name">Lasse-Stefans</h2>
-            <p class="event-item-place">Kjellsalen</p>
-            <p class="event-item-time">19.00 - 21.00</p>
-            <p class="event-item-price">350 sek</p>
+            <h2 class="event-item-name">{{ eventItemData.name }}</h2>
+            <p class="event-item-place">{{ eventItemData.place }}</p>
+            <p class="event-item-time">{{ eventItemData.startTime }} - {{ eventItemData.endTime }}</p>
+            <p class="event-item-price">{{ eventItemData.price }} sek</p>
         </div>
     </article>
 </template>
@@ -16,6 +16,22 @@
 <script>
 export default {
     name: 'eventItem',
+    props: {
+        eventItemData: Object
+    },
+    computed: {
+        eventDay() {
+            let date = new Date(this.eventItemData.date);
+            let day = date.getDate();
+            return day;
+        },
+        eventMonth() {
+            let monthNames = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+            let date = new Date(this.eventItemData.date);
+            let month = date.getMonth();
+            return monthNames[month];
+        }
+    }
 }
 </script>
 

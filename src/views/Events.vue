@@ -2,9 +2,7 @@
     <main class="main-container">
         <h1 class="heading">Events</h1>
         <div class="event-container">
-           <eventItem />
-           <eventItem /> 
-           <eventItem /> 
+           <eventItem v-for="(item, index) in eventList" :key="index" :eventItemData="item" />
         </div>
     </main>
 </template>
@@ -15,6 +13,11 @@ export default {
     name: 'Events',
     components: {
         eventItem
+    },
+    computed: {
+        eventList() {
+            return this.$store.state.eventsList;
+        }
     }
 }
 </script>
