@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 
 const ticketSchema = new mongoose.Schema({
   ticket_number: {
-    type: Number
-    // kanske behövs om front-end gör ett ticketNumber
+    type: Number,
+    required: true
   },
   event_id: {
     type: mongoose.Schema.Types.ObjectId,
