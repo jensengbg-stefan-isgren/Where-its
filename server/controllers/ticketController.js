@@ -6,8 +6,10 @@ exports.addTicket = async (req, res) => {
   let user_id = req.body.user_id,
     event_id = req.body.event_id,
     sold_tickets = req.body.sold_tickets,
-    sold_tickets = sold_tickets + 1,
     date = new Date();
+
+    sold_tickets = sold_tickets + 1,
+
 
   // Upd antal sålda biljetter
   Event.updateOne(
