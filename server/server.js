@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
 const eventRouter = require("./routes/event");
+const ticketRouter = require("./routes/ticket");
+
 
 const PORT = 3000;
 
@@ -15,6 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/events", eventRouter);
+app.use("/ticket", ticketRouter);
 
 mongoose
   .connect(`mongodb+srv://jensengbg:jensengbg@cluster0-lhhov.mongodb.net/where-its?retryWrites=true&w=majority`, {
