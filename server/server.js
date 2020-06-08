@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 mongoose
-  .connect(`mongodb+srv://dbUser:hemligt@cluster0-r5fw1.mongodb.net/where-its?retryWrites=true&w=majority";`, {
+  .connect(`mongodb+srv://dbUser:hemligt@cluster0-r5fw1.mongodb.net/where-its?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=true`, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
