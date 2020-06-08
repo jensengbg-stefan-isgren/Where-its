@@ -4,7 +4,7 @@ const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
-const adminRouter = require("./routes/admin");
+const eventRouter = require("./routes/event");
 
 const PORT = 3000;
 
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
 
-app.use("/admin", adminRouter);
+app.use("/events", eventRouter);
 
 mongoose
   .connect(`mongodb+srv://jensengbg:jensengbg@cluster0-lhhov.mongodb.net/where-its?retryWrites=true&w=majority`, {
