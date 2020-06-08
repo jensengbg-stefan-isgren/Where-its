@@ -24,6 +24,9 @@ const eventSchema = new mongoose.Schema({
   price: {
       type: Number,
       required: true
+  },
+  sold_tickets: {
+      type: Number
   }
 });
 
