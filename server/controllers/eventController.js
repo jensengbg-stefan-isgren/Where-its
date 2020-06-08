@@ -1,4 +1,6 @@
+
 const event = require("../models/event");
+
 
 exports.addEvent = async (request, response) => {
   const eventItem = new event({
@@ -21,5 +23,7 @@ exports.addEvent = async (request, response) => {
 };
 
 exports.getEvents = async (request, response) => {
+  const events= await Event.find();
+  res.json(events);
   response.send("HÄR KOMMER ALLA EVENTS");
 };
