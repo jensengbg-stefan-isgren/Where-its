@@ -1,11 +1,5 @@
-const express = require("express"),
-  bodyParser = require("body-parser"),
-  mongoose = require("mongoose"),
-  db = mongoose.connection,
-  ticketSchema = db.ticketSchema,
-  fs = require("fs");
 
-const Event = require("../models/event");
+const event = require("../models/event");
 
 exports.addEvent = async (request, response) => {
   const eventItem = new event({
@@ -29,7 +23,7 @@ exports.addEvent = async (request, response) => {
 
 exports.getEvents = async (request, response) => {
   const events = await Event.find();
-  console.log("HÄR KOMMER ALLA EVENTS");
-
   return response.json(events);
+
+
 };
