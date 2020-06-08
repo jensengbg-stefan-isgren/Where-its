@@ -1,10 +1,6 @@
-const express = require("express"),
-bodyParser = require("body-parser"),
-mongoose = require("mongoose"),
+const mongoose = require("mongoose"),
 db = mongoose.connection,
 ticketSchema = db.ticketSchema;
-
-
 
 exports.addTicket = async (req, res) => {
     const user_id = req.body.user_id,
