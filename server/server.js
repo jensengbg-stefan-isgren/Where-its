@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 mongoose
-  .connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0-lhhov.mongodb.net/airbean?retryWrites=true&w=majority`, {
+  .connect(`mongodb+srv://dbUser:hemligt@cluster0-r5fw1.mongodb.net/where-its?retryWrites=true&w=majority";`, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
@@ -22,6 +22,7 @@ mongoose
     console.log(`Connected to MongoDB Airbean`);
     app.listen(3000, () => console.log(`Server started on port ${PORT}`));
   })
-  .catch(() => {
+  .catch((error) => {
+    console.log(error);
     console.log(`Error connecting to the database`);
   });
