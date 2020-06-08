@@ -31,6 +31,6 @@ exports.addEvent = async (request, response) => {
 exports.getEvents = async (request, response) => {
   const events = await Event.find();
   console.log("HÄR KOMMER ALLA EVENTS")
-  response.json(events);
+
   return response.json(events);
 };
