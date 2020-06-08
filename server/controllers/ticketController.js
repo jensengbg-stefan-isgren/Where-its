@@ -6,6 +6,7 @@ exports.addTicket = async (req, res) => {
   try {
     const user_id = req.body.user_id,
       event_id = req.body.event_id,
+      ticket_number = req.body.ticket_number,
       date = new Date();
 
     let sold_tickets = req.body.sold_tickets;
@@ -22,6 +23,7 @@ exports.addTicket = async (req, res) => {
 
     // Skapa ny ticket
     const ticket = new Ticket({
+      ticket_number: ticket_number,
       event_id: event_id,
       created_at: date,
       user_id: user_id,
