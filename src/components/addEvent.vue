@@ -8,8 +8,8 @@
                 <input type="date" name="date" id="date" placeholder="When">
             </div>
             <div class="half">
-                <input type="time" name="startDateTime" id="startDateTime">
-                <input type="time" name="endDateTime" id="endDateTime">
+                <input type="time" name="startTime" id="startDateTime">
+                <input type="time" name="endTime" id="endDateTime">
                 <input type="number" name="tickets" id="tickets" placeholder="Tickets">
                 <input type="number" name="price" id="price" placeholder="Price">
             </div>
@@ -20,7 +20,20 @@
 
 <script>
 export default {
-    name: 'addEvent'
+    name: 'addEvent',
+    data: () => {
+        return {
+            input: {
+                name: '',
+                place: '',
+                date: '',
+                startTime: '',
+                endTime: '',
+                tickets: '',
+                price: ''
+            }
+        }
+    }
 }
 </script>
 
