@@ -1,5 +1,5 @@
 <template>
-    <article class="event-item">
+    <article class="event-item" @click="buyTicket">
         <div class="event-item-date">
             <p class="event-item-date-day">{{ eventDay }}</p>
             <p class="event-item-date-month">{{ eventMonth }}</p>
@@ -18,6 +18,16 @@ export default {
     name: 'eventItem',
     props: {
         eventItemData: Object
+    },
+    methods: {
+        buyTicket() {
+            this.$router.push({
+                name: 'Buy',
+                params: {
+                    eventData: this.eventItemData
+                }
+            });
+        }
     },
     computed: {
         eventDay() {
