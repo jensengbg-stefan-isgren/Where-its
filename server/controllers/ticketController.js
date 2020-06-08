@@ -27,9 +27,9 @@ exports.addTicket = async (req, res) => {
       user_id: user_id,
     });
     ticket.save();
+
+    res.send(ticket);
   } catch (err) {
     console.log(err);
   }
-
-  res.send(ticket);
 };
