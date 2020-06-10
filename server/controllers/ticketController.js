@@ -11,7 +11,6 @@ exports.addTicket = async (req, res) => {
     let soldTickets = req.body.soldTickets;
     soldTickets += numberOfTickets;
 
-    // Upd antal sålda biljetter
     Event.updateOne(
       { eventId: eventId },
       { $set: { soldTickets: soldTickets } },
@@ -19,7 +18,6 @@ exports.addTicket = async (req, res) => {
         if (err) console.log(err);
       }
     );
-
 
     let tickets = [];
     for (let i = 0; i < numberOfTickets; i++) {
