@@ -15,6 +15,9 @@ import orderButton from "../components/OrderButton.vue";
 
 export default {
     name: "Buy",
+    props: {
+        eventData: Object
+    },
     components: {
         top,
         ticketInfo,
