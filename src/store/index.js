@@ -16,7 +16,7 @@ export default new Vuex.Store({
       },
       {
         name: 'Lasse-Stefans 2',
-        place: 'enplats',
+        place: 'tvåplats',
         startTime: '19.00',
         endTime: '21.00',
         date: '2020-03-25',
@@ -24,7 +24,7 @@ export default new Vuex.Store({
       },
       {
         name: 'Lasse-Stefans 3',
-        place: 'enplats',
+        place: 'treplats',
         startTime: '19.00',
         endTime: '21.00',
         date: '2020-03-29',

@@ -3,7 +3,7 @@
         <top
             h6="You are about to score some tickets to"
         />
-        <ticketInfo v-for="(item, index) in eventList" :key="index" :eventInfo="item" />
+        <ticketInfo :eventInfo="eventData" />
         <orderButton />
     </section>
 </template>
@@ -15,18 +15,16 @@ import orderButton from "../components/OrderButton.vue";
 
 export default {
     name: "Buy",
-    props: {
-        eventData: Object
-    },
     components: {
         top,
         ticketInfo,
         orderButton
     },
-    computed: {
-        eventList() {
-            return this.$store.state.eventsList;
-        }
+    props: {
+        eventData: Object
+    },
+    mounted() {
+        console.log(this.eventData);
     }
 }
 </script>
