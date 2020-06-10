@@ -1,5 +1,4 @@
-const mongoose = require("mongoose"),
-  Event = require("../models/event"),
+const Event = require("../models/event"),
   Ticket = require("../models/ticket");
 
 exports.addTicket = async (req, res) => {
