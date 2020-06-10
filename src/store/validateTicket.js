@@ -22,6 +22,7 @@ export default {
                     },
                 });
                 let data = await response.json();
+                console.log(data)
                 context.commit("validateTicket", data);
             } catch (error) {
                 console.log("ERROR: trying to fetch data", error);
