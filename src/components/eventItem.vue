@@ -7,7 +7,7 @@
         <div class="event-item-info">
             <h2 class="event-item-name">{{ eventItemData.name }}</h2>
             <p class="event-item-place">{{ eventItemData.place }}</p>
-            <p class="event-item-time">{{ eventItemData.startTime }} - {{ eventItemData.endTime }}</p>
+            <p class="event-item-time">{{ startTime }} - {{ endTime }}</p>
             <p class="event-item-price">{{ eventItemData.price }} sek</p>
         </div>
     </article>
@@ -30,14 +30,28 @@ export default {
         }
     },
     computed: {
+        startTime() {
+            let date = new Date(this.eventItemData.startDateTime);
+            let hour = (date.getHours() < 10 ? '0' : '') + date.getHours();
+            let minutes = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
+            let time = hour + ':' + minutes;
+            return time;
+        },
+        endTime() {
+            let date = new Date(this.eventItemData.endDateTime);
+            let hour = (date.getHours() < 10 ? '0' : '') + date.getHours();
+            let minutes = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
+            let time = hour + ':' + minutes;
+            return time;
+        },
         eventDay() {
-            let date = new Date(this.eventItemData.date);
+            let date = new Date(this.eventItemData.startDateTime);
             let day = date.getDate();
             return day;
         },
         eventMonth() {
             let monthNames = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
-            let date = new Date(this.eventItemData.date);
+            let date = new Date(this.eventItemData.startDateTime);
             let month = date.getMonth();
             return monthNames[month];
         }

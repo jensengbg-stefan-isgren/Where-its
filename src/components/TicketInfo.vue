@@ -3,7 +3,7 @@
         <h1 class="name"> {{ eventInfo.name }} </h1>
         <div class="date-container">
             <h3 class="date"> {{ eventDay }} {{ eventMonth }} </h3>
-            <h3 class="time"> {{ eventInfo.startTime }} - {{ eventInfo.endTime }} </h3>
+            <h3 class="time"> {{ startTime }} - {{ endTime }} </h3>
         </div>
         <h5 class="place">@{{ eventInfo.place }} </h5>
         <h2 class="price"> {{ eventInfo.price }} sek </h2>
@@ -17,14 +17,28 @@ export default {
         eventInfo: Object
     },
     computed: {
+        startTime() {
+            let date = new Date(this.eventInfo.startDateTime);
+            let hour = (date.getHours() < 10 ? '0' : '') + date.getHours();
+            let minutes = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
+            let time = hour + ':' + minutes;
+            return time;
+        },
+        endTime() {
+            let date = new Date(this.eventInfo.endDateTime);
+            let hour = (date.getHours() < 10 ? '0' : '') + date.getHours();
+            let minutes = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
+            let time = hour + ':' + minutes;
+            return time;
+        },
         eventDay() {
-            let date = new Date(this.eventInfo.date);
+            let date = new Date(this.eventInfo.startDateTime);
             let day = date.getDate();
             return day;
         },
         eventMonth() {
             let monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-            let date = new Date(this.eventInfo.date);
+            let date = new Date(this.eventInfo.startDateTime);
             let month = date.getMonth();
             return monthNames[month];
         }

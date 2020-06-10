@@ -16,7 +16,7 @@ export default {
     },
     computed: {
         eventList() {
-            return this.$store.state.eventsList;
+            return this.$store.state.eventList;
         }
     }
 }

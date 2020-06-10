@@ -15,10 +15,7 @@ export default {
   components: {
     addEvent,
     List: adminEventList,
-  },
-  created() {
-    this.$store.dispatch('loadEventList')
-  },
+  }
 }
 </script>
 
