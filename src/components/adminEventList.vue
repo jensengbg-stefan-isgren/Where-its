@@ -51,25 +51,24 @@ export default {
 </script>
 
 <style scoped>
-.grid {
-  grid-template: auto / 4;
-}
-
-.list-head > h4 {
-  color: #fff;
-  display: inline-block;
-  padding: 2rem;
-  margin: 1rem;
-}
-
-span {
-  color: #fff;
+table {
+  background: rgba(0, 0, 0, 0.3);
 }
 
 th,
 td {
-  min-width: 120px;
   padding: 10px 20px;
+  min-width: 120px;
+}
+
+th {
+  text-align: left;
+  color: #f56b9a;
+  font-weight: bold;
+}
+
+td {
+  font-size: 1.5rem;
   color: #fff;
 }
 </style>

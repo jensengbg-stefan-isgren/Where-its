@@ -1,4 +1,4 @@
-const event = require("../models/event");
+const event = require('../models/event')
 
 exports.addEvent = async (request, response) => {
   const eventItem = new event({
@@ -9,22 +9,22 @@ exports.addEvent = async (request, response) => {
     tickets: request.body.tickets,
     price: request.body.price,
     soldTickets: request.body.soldTickets,
-  });
+  })
   eventItem
     .save()
     .then((eventItem) => {
-      response.send(eventItem);
+      response.send(eventItem)
     })
     .catch((error) => {
-      console.log(error);
-    });
-};
+      console.log(error)
+    })
+}
 
 exports.getEvents = async (request, response) => {
   try {
-    const events = await event.find();
-    return response.json(events);
+    const events = await event.find()
+    return response.json(events)
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
-};
+}

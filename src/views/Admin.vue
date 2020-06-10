@@ -16,12 +16,15 @@ export default {
     addEvent,
     List: adminEventList,
   },
+  created() {
+    this.$store.dispatch('loadEventList')
+  },
 }
 </script>
 
 <style scoped>
 .admin-wrapper {
-  height: 100vh;
+  /* height: 100vh; */
   width: 100vw;
   background: #231f42;
 }
