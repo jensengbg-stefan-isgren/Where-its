@@ -35,8 +35,12 @@ const mongoose = require("mongoose"),
         ticket.save();
       }
 
-  
-      res.send(ticket);
+  const message = {
+    "Number of tickets: ": numberOfTickets,
+    "Success ": true,
+    "Message: ": `You bought ${numberOfTickets}!  `
+  }
+      res.send(message);
     } catch (err) {
       console.log(err);
       res.send(err)
