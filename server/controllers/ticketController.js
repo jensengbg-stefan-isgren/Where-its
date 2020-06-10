@@ -15,7 +15,7 @@ exports.addTicket = async (req, res) => {
 
     // Upd antal sålda biljetter
     Event.updateOne(
-      { _id: event_id },
+      { _id: eventId },
       { $set: { soldTickets: soldTickets } },
       (err) => {
         if (err) console.log(err);
