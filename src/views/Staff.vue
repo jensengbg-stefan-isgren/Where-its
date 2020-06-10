@@ -6,15 +6,26 @@
       <h2 class="staff">STAFF</h2>
     </section>
     <section class="verify">
-      <input type="text" placeholder="Biljett nummer" class="verify-number" />
-      <button class="verify-button">Verify ticket</button>
+      <input v-model="ticketNumber" type="text" placeholder="Biljett nummer" class="verify-number" />
+      <button @click="validateTicket" class="verify-button">Verify ticket</button>
     </section>
   </section>
 </template>
 
 <script>
 export default {
-  name: "Staff"
+  name: "Staff",
+
+  data() {
+    return {
+      ticketNumber: ""
+    };
+  },
+  methods: {
+    validateTicket() {
+      this.$store.dispatch("validateTicket", this.ticketNumber);
+    }
+  }
 };
 </script>
 
