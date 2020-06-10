@@ -4,18 +4,19 @@ const mongoose = require("mongoose"),
 
 exports.addTicket = async (req, res) => {
   try {
-    const user_id = req.body.user_id,
-      event_id = req.body.event_id,
-      ticket_number = req.body.ticket_number,
+    const userId = req.body.userId,
+      eventId = req.body.eventId,
+      ticketNumber = req.body.ticketNumber,
+      numberOfTickets = req.body.NumberOfTickets,
       date = new Date();
 
-    let sold_tickets = req.body.sold_tickets;
-    sold_tickets++;
+    let soldTickets = req.body.soldTickets;
+    soldTickets += numberOfTickets;
 
     // Upd antal sålda biljetter
     Event.updateOne(
       { _id: event_id },
-      { $set: { sold_tickets: sold_tickets } },
+      { $set: { soldTickets: soldTickets } },
       (err) => {
         if (err) console.log(err);
       }
@@ -23,10 +24,10 @@ exports.addTicket = async (req, res) => {
 
     // Skapa ny ticket
     const ticket = new Ticket({
-      ticket_number: ticket_number,
-      event_id: event_id,
+      ticketNumber: ticketNumber,
+      eventId: eventId,
       created_at: date,
-      user_id: user_id,
+      userId: userId,
     });
     ticket.save();
 
