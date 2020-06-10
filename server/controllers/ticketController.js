@@ -54,9 +54,9 @@ exports.addTicket = async (req, res) => {
 
 exports.getTicket = async (request, response) => {
   try {
-    const tickets = await Ticket.findOne({ticketNumber: request.headers.ticketNumber}).exec();
+    const tickets = await Ticket.findOne({ticketNumber: request.headers.ticketnumber}).exec();
+
     if(tickets) {
-      console.log(tickets)
       response.json(tickets);
 
     } else {
@@ -65,7 +65,6 @@ exports.getTicket = async (request, response) => {
     }
   } catch (error) {
     console.log(error);
-
     response.send(err)
 
   }
