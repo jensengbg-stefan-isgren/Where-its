@@ -1,20 +1,20 @@
 const mongoose = require("mongoose");
 
 const ticketSchema = new mongoose.Schema({
-  ticket_number: {
-    type: Number,
+  ticketNumber: {
+    type: String,
     required: true
   },
-  event_id: {
-    type: mongoose.Schema.Types.ObjectId,
+  eventId: {
+    type: String,
     required: true
   },
-  created_at: {
+  createdAt: {
     type: Date,
     required: true
   },
-  user_id: {
-      type: Number,
+  userId: {
+      type: String,
       required: true
   }
 
