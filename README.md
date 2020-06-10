@@ -68,7 +68,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 **Get Ticket: GET localhost:3000/ticket**\
-req.headers.ticket_number
+req.headers.ticketNumber
 
 **Get all events: GET localhost:3000/events**
 
