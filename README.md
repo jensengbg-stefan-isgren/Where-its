@@ -64,7 +64,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     eventId = req.body.eventId\
     ticketNumber = req.body.ticketNumber\
     numberOfTickets = req.body.numberOfTickets\
-    sold_tickets = req.body.sold_tickets
+    soldTickets = req.body.soldTickets
 
 
 **Get Ticket: GET localhost:3000/ticket**\
