@@ -24,10 +24,10 @@
         <td>
           <h4>{{ event.place }}</h4>
         </td>
-        <td>
+        <td class="nr">
           <h4>{{ event.tickets }}</h4>
         </td>
-        <td>
+        <td class="nr">
           <h4>{{ event.soldTickets }}</h4>
         </td>
       </tr>
@@ -36,12 +36,7 @@
 </template>
 
 <script>
-// import adminEventItem from './adminEventItem'
 export default {
-  components: {
-    // EventItem: adminEventItem,
-  },
-
   computed: {
     events() {
       return this.$store.state.eventList
@@ -53,6 +48,7 @@ export default {
 <style scoped>
 table {
   background: rgba(0, 0, 0, 0.3);
+  margin: 0.8rem;
 }
 
 th,
@@ -67,8 +63,16 @@ th {
   font-weight: bold;
 }
 
-td {
+.nr {
+  text-align: right;
+}
+td:first-of-type > * {
   font-size: 1.5rem;
+  font-weight: bold;
+}
+
+td > * {
   color: #fff;
+  font-weight: normal;
 }
 </style>

@@ -1,9 +1,11 @@
 <template>
-  <div class="admin-wrapper">
+  <section>
     <img src="../assets/logologo.png" alt="logo" class="logo" />
-    <List />
-    <addEvent />
-  </div>
+    <div class="admin-wrapper">
+      <addEvent />
+      <List />
+    </div>
+  </section>
 </template>
 
 <script>
@@ -23,13 +25,25 @@ export default {
 </script>
 
 <style scoped>
-.admin-wrapper {
-  /* height: 100vh; */
-  width: 100vw;
+section {
+  min-height: 100vh;
   background: #231f42;
+}
+.admin-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {
   margin: 2%;
+}
+
+@media only screen and (min-width: 1100px) {
+  .admin-wrapper {
+    flex-direction: row-reverse;
+    align-items: flex-start;
+  }
 }
 </style>
