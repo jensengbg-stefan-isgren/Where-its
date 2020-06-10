@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+
 import Events from '../views/Events.vue'
+
 import Buy from '../views/Buy.vue'
 
 Vue.use(VueRouter)
