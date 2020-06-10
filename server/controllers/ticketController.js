@@ -6,11 +6,12 @@ exports.addTicket = async (req, res) => {
   try {
     const userId = req.body.userId,
       eventId = req.body.eventId,
-      ticketNumber = req.body.ticketNumber,
       numberOfTickets = req.body.NumberOfTickets,
       date = new Date();
 
-    let soldTickets = req.body.soldTickets;
+      console.log(req.body.numberOfTickets)
+
+    let soldTickets = req.body.sold_tickets;
     soldTickets += numberOfTickets;
 
     // Upd antal sålda biljetter
@@ -22,23 +23,33 @@ exports.addTicket = async (req, res) => {
       }
     );
 
-    // Skapa ny ticket
-    // måste snacka med crypto om dom gör ett ticketNumber
-    // så vi kan ha en array här som genererar nya tickets beroende på antal sålda biljetter.)
-    for (i = 0; i < ticketNumber.length; i++) {
-      const ticket = new Ticket({
-        ticketNumber: ticketNumber[i],
-        eventId: eventId,
-        createdAt: date,
-        userId: userId,
-      });
-      ticket.save();
+    const ticketNumbers = [];
+
+    for (i = 0; i < numberOfTickets; i++) {
+      const ticketNumber = Math.random()
+        .toString(36)
+        .substring(7);
+
+        const ticket = new Ticket({
+          ticketNumber: ticketNumber.toLocaleUpperCase(),
+          eventId: eventId,
+          createdAt: date,
+          userId: userId,
+        })
+        console.log(ticket)
+        ticketNumbers.push(ticket);
+        ticket.save().catch((error) => {
+          console.log(error);
+        });
+
+      console.log(ticketNumbers)
     }
 
     const message = {
       "Number of tickets: ": numberOfTickets,
+      "Tickets: ": ticketNumbers,
       "Success ": true,
-      "Message: ": `You bought ${numberOfTickets}!  `,
+      "Message: ": "Here is your tickets!",
     };
     res.send(message);
   } catch (err) {
