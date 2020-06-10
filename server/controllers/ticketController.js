@@ -46,3 +46,12 @@ exports.addTicket = async (req, res) => {
     res.send(err);
   }
 };
+
+exports.getTicket = async (request, response) => {
+  try {
+    const tickets = await Ticket.findOne({ticket_number: request.params.ticket_number})
+    return response.json(tickets);
+  } catch (error) {
+    console.log(error);
+  }
+};
