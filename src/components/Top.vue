@@ -15,11 +15,9 @@ export default {
 
 <style scoped>
     .top {
-        position: absolute;
         width: 202px;
         height: 27px;
-        left: 87px;
-        top: 99px;
+        margin-bottom: 3rem;
         font-family: Fira Sans;
         font-style: italic;
         font-weight: normal;

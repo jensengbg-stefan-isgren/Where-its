@@ -31,7 +31,12 @@ export default {
 
 <style scoped>
     .buy {
-        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 6rem;
+        padding-bottom: 2rem;
         width: 375px;
         height: 667px;
         background: #231F42;
