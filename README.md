@@ -60,10 +60,12 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### ENDPONTS SERVER
 
 **Buy Ticket:  POST localhost:3000/ticket**\
-    user_id = req.body.user_id\
-    event_id = req.body.event_id\
-    ticket_number = req.body.ticket_number\
+    userId = req.body.userId\
+    eventId = req.body.eventId\
+    ticketNumber = req.body.ticketNumber\
+    numberOfTickets = req.body.numberOfTickets\
     sold_tickets = req.body.sold_tickets
+
 
 **Get Ticket: GET localhost:3000/ticket**\
 req.headers.ticket_number
