@@ -8,20 +8,20 @@ exports.addTicket = async (req, res) => {
       numberOfTickets = req.body.numberOfTickets,
       date = new Date();
 
-    let soldTickets = req.body.sold_tickets;
+    let soldTickets = req.body.soldTickets;
     soldTickets += numberOfTickets;
 
     // Upd antal sålda biljetter
     Event.updateOne(
-      { _id: eventId },
+      { eventId: eventId },
       { $set: { soldTickets: soldTickets } },
       (err) => {
         if (err) console.log(err);
       }
     );
 
-    let tickets = [];
 
+    let tickets = [];
     for (let i = 0; i < numberOfTickets; i++) {
       const ticketNumber = Math.random()
         .toString(36)
@@ -49,6 +49,7 @@ exports.addTicket = async (req, res) => {
     res.send(message);
   } catch (err) {
     console.log(err);
+
     res.send(err);
   }
 };
@@ -59,5 +60,8 @@ exports.getTicket = async (request, response) => {
     return response.json(tickets);
   } catch (error) {
     console.log(error);
+
+    res.send(err)
+
   }
 };
