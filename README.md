@@ -62,7 +62,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 **Buy Ticket:  POST localhost:3000/ticket**\
     userId = req.body.userId\
     eventId = req.body.eventId\
-    ticketNumber = req.body.ticketNumber\
     numberOfTickets = req.body.numberOfTickets\
     soldTickets = req.body.soldTickets
 
