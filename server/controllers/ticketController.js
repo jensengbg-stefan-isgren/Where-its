@@ -55,11 +55,17 @@ exports.addTicket = async (req, res) => {
 exports.getTicket = async (request, response) => {
   try {
     const tickets = await Ticket.findOne({ticket_number: request.params.ticket_number})
-    return response.json(tickets);
+    if(tickets) {
+      response.json(tickets);
+
+    } else {
+      const message = "Ticket not found"
+      response.send(message)
+    }
   } catch (error) {
     console.log(error);
 
-    res.send(err)
+    response.send(err)
 
   }
 };
