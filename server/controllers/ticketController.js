@@ -54,7 +54,7 @@ exports.addTicket = async (req, res) => {
 
 exports.getTicket = async (request, response) => {
   try {
-    const tickets = await Ticket.findOne({ticketNumber: request.headers.ticketNumber})
+    const tickets = await Ticket.findOne({ticketNumber: request.headers.ticketNumber}).exec();
     if(tickets) {
       console.log(tickets)
       response.json(tickets);
